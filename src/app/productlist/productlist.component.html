@@ -1,0 +1,15 @@
+
+
+
+
+<button (click)="renderValues()">Get </button>
+    <ul>
+      <li *ngFor="let product of products">{{ product.name }}</li>
+    </ul>
+
+
+<input  type="number" #prdId  />
+<button (click)="getProductById(prdId)">getbyid </button>
+
+
+

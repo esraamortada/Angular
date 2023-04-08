@@ -1,0 +1,28 @@
+<div class="card" style="width: 18rem;"  >
+    <!-- <img class="card-img-top" [src]="{{Product.Img}}">  alt="Card image cap"> -->
+    <div class="card-body">
+     
+    </div>
+    <ul class="list-group list-group-flush" *ngFor="let Product of Products">
+      <img class="card-img-top" [src]="Product.Img">
+      <li class="list-group-item">{{Product.ID}}</li>
+      <li class="list-group-item">{{Product.Name}}</li>
+      <li class="list-group-item">{{Product.Price}}</li>
+      <li class="list-group-item">{{Product.Quantity}}</li>
+    </ul>
+   
+  </div>
+
+<!--   
+  <button @click="ProductsWithDiscount">Products with discount</button>
+  <button @click="ProductsWithoutDiscount">Products without discount</button>
+
+  <template>
+    <div>
+      <h2>Products with discount</h2>
+      <ul>
+        <li v-for="product in productsWithDiscount">{{ product.name }}</li>
+      </ul>
+    </div>
+  </template> -->
+

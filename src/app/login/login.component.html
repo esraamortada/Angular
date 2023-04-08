@@ -1,0 +1,37 @@
+<div class="container">
+    <form  #userForm="ngForm"  novalidate (submit)="onSubmit()">
+        {{userForm.value |json}}
+        <br>
+        {{userModel|json}}
+       
+
+        <div class="from-group">
+            <label>Email :</label>
+            <input type="email" name="txtEmail"  required [class.is-invalid]="email.invalid&&email.touched"[(ngModel)]="userModel.email" #email="ngModel"  class="form-control">
+        </div>
+
+        <div class="forrm-group">
+            <label>Password</label>
+            <input type="password" required name="txtpassword" [class.is-invalid]="password.invalid&&password.touched" pattern="^\d{8}$" [(ngModel)]="userModel.password" #password="ngModel"  class="form-control">
+            <div *ngIf="password.errors&&password.touched">
+                <small class="text-danger" *ngIf="password.errors['required']">password is required</small>
+                <small class="text-danger" *ngIf="password.errors['pattern']">password must be 8 digits</small>
+            </div>
+        </div>
+
+       
+        <br>
+       
+        
+        <input type="submit" [disabled]="userForm.form.invalid" class="btn btn-primary" value="Login">
+
+    </form>
+    <br>
+
+    <div *ngIf="message" >
+        {{ message }}
+      </div>
+</div>
+
+
+

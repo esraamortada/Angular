@@ -1,0 +1,51 @@
+
+<div class="container">
+
+<form [formGroup]="notesForm" (ngSubmit)="onSubmit()"> 
+
+    <div>
+      <label>Name:</label>
+      
+            <input [class.is-invalid]="name?.invalid &&name?.touched" formControlName="name" type="text" class="form-control">
+            
+            <div *ngIf="name?.invalid &&name?.touched">
+                <small *ngIf="name?.errors?.['required']" class="text-danger">User Name is required</small>
+                <small *ngIf="name?.errors?.['minlength']" class="text-danger">User name at least 5 characters</small>
+                
+            </div>
+  
+    <div>
+      <label >Product:</label>
+      <select  class="custom-select"  name="product" >
+              
+        <option *ngFor="let product of Products">
+            {{product.Name}}
+        </option>
+    </select>
+    </div>
+  
+    <div>
+      <label >Discount:</label>
+      <input type="checkbox" id="discount" formControlName="discount">
+      <div *ngIf="discount?.value">
+        <input [class.is-invalid]="discount?.invalid &&discount?.touched" formControlName="discount" type="text" class="form-control">
+            
+        <div *ngIf="discount?.invalid &&discount?.touched">
+            <small *ngIf="discount?.errors?.['required']" class="text-danger">Discount is required</small>
+        </div>
+      </div>
+    </div>
+    
+  
+    <div>
+      <label >Comment:</label>
+      <input type="text" id="comment" formControlName="comment">
+    </div>
+    
+  
+    <button type="submit">Submit</button>
+    
+    
+  
+
+</div>
